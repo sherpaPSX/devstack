@@ -1,30 +1,28 @@
 'use strict';
 var gulp = require('gulp');
-var sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass');
-var postcss = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
-var cssnano = require('cssnano');
+var requireDir = require('require-dir');
 
-var paths = {
-  sass: ['./sass/**/*.scss']
-};
+// Tasks directory
+var tasks = requireDir('./gulp');
 
-gulp.task('styles', function () {
-    var processors = [
-        autoprefixer({browsers: ['> 1%']}),
-        cssnano(),
-    ];
-    return gulp.src('./sass/main.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass.sync().on('error', sass.logError))
-        .pipe(sourcemaps.write())
-        .pipe(postcss(processors))
-        .pipe(gulp.dest('./'));
-});
+// Development tasks
+gulp.task('serve', ['default'], tasks.browserSync); //BrowserSync
+gulp.task('styles', tasks.sass); // SASS files, PostCSS, autoprefixer
+gulp.task('svgImages', tasks.svgImages); // Svg images
+gulp.task('svgIcons', tasks.svgIcons); // Svg images
+gulp.task('images', tasks.images); // Images
+gulp.task('javascript', tasks.javascript); // Images
 
-gulp.task('default', ['styles']);
+// Build tasks
+gulp.task('copy', tasks.copy); // Copy - flexboxgrid, sanitize
+gulp.task('fonts', tasks.copy); // Fonts
+
+
+gulp.task('default', ['styles', 'svgImages', 'svgIcons', 'images', 'javascript']);
+gulp.task('build', ['styles', 'svgImages', 'svgIcons', 'images', 'copy', 'fonts', 'javascript']);
 
 gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['styles']);
+  gulp.watch('./sass/**/*.scss', ['styles'])
+  gulp.watch('./assets/svg/*', ['svg']);
+  gulp.watch('./assets/images/*', ['images']);
 });

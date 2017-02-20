@@ -1,0 +1,37 @@
+.alert {
+  width: 100%;
+  padding: 1rem;
+  border-radius: $border-radius;
+  margin-bottom: 1rem;
+
+  @media (min-width: 479px) {
+    padding: 1rem 2rem;
+  }
+
+  &--info {
+    padding-left: 4em;
+    color: #FFF;
+    background-color: #d00049;
+    position: relative;
+  }
+}
+
+#form-section-1 .alert {
+  display: none;
+}
+
+
+.round-icon {
+  width: 2em;
+  height: 2em;
+  background-color: #FFF;
+  display: block;
+  background-position: center center;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 100%;
+  left: 1rem;
+  background-size: 20%;
+}
