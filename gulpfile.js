@@ -6,7 +6,7 @@ var requireDir = require('require-dir');
 var tasks = requireDir('./gulp');
 
 // Development tasks
-gulp.task('serve', ['default'], tasks.browserSync); //BrowserSync
+gulp.task('serve', tasks.browserSync); //BrowserSync
 gulp.task('styles', tasks.sass); // SASS files, PostCSS, autoprefixer
 gulp.task('svgImages', tasks.svgImages); // Svg images
 gulp.task('svgIcons', tasks.svgIcons); // Svg images
@@ -18,7 +18,7 @@ gulp.task('copy', tasks.copy); // Copy - flexboxgrid, sanitize
 gulp.task('fonts', tasks.copy); // Fonts
 
 
-gulp.task('default', ['styles', 'svgImages', 'svgIcons', 'images', 'javascript']);
+gulp.task('default', ['serve', 'styles', 'svgImages', 'svgIcons', 'images', 'javascript']);
 gulp.task('build', ['styles', 'svgImages', 'svgIcons', 'images', 'copy', 'fonts', 'javascript']);
 
 gulp.task('watch', function() {
