@@ -10,5 +10,5 @@ module.exports = function () {
     gulp.watch("./assets/sass/**/*.scss", ['styles']);
     gulp.watch("./assets/js/*.js", ['javascript']);
     gulp.watch("*.html").on('change', browserSync.reload);
-    gulp.watch('./assets/images/**/*', ['images']);
+    gulp.watch('./assets/images/**/*.*', ['images']);
 };
