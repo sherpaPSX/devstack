@@ -5,9 +5,8 @@ var concat = require('gulp-concat');
 
 module.exports = function () {
   return gulp.src('./assets/js/*.js')
-    .pipe(sourcemaps.init())
     .pipe(concat('all.js'))
-    .pipe(sourcemaps.write())
+    .pipe(uglify())
     .pipe(gulp.dest('./dist/js'));
 
     var options = {

@@ -7,8 +7,9 @@ module.exports = function () {
         server: "./"
     });
 
-    gulp.watch("./assets/sass/**/*.scss", ['styles']);
+    gulp.watch("./assets/sass/**/*.scss", ['sass','postCss']);
     gulp.watch("./assets/js/*.js", ['javascript']);
     gulp.watch("*.html").on('change', browserSync.reload);
     gulp.watch('./assets/images/**/*.*', ['images']);
+    gulp.watch('./assets/svg/**/*.*', ['svgImages']);
 };

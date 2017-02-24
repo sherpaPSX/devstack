@@ -9,4 +9,6 @@ module.exports = function () {
   gulp.src('node_modules/sanitize.css/sanitize.css')
     .pipe(rename('sanitize.scss'))
     .pipe(gulp.dest('./assets/sass/vendor/'));
+  gulp.src('./assets/fonts/*')
+    .pipe(gulp.dest('./dist/fonts/'));
 };
