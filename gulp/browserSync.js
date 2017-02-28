@@ -1,10 +1,19 @@
 var gulp = require('gulp');
-var browserSync = require('browser-sync');
+var browserSync  = require("browser-sync").create();
+var htmlInjector = require("bs-html-injector");
 
+
+
+
+/**
+ * Start Browsersync
+ */
 module.exports = function () {
-
+    browserSync.use(htmlInjector, {
+        files: "app/*.html"
+    });
     browserSync.init({
-        server: "./"
+        server: "/"
     });
 
     gulp.watch("./assets/sass/**/*.scss", ['sass','postCss']);

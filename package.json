@@ -3,11 +3,13 @@
     "autoprefixer": "^6.6.1",
     "browser-sync": "^2.18.7",
     "cssnano": "^3.10.0",
+    "filter": "^0.1.1",
     "flexboxgrid": "^6.3.1",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
     "gulp-copy": "^1.0.0",
+    "gulp-filter": "^5.0.0",
     "gulp-imagemin": "^3.1.1",
     "gulp-postcss": "^6.2.0",
     "gulp-rename": "^1.2.2",
@@ -15,6 +17,7 @@
     "gulp-sourcemaps": "^2.3.1",
     "gulp-svg-sprites": "^4.0.2",
     "gulp-svg-to-css": "^1.1.15",
+    "gulp-svg2png": "^2.0.2",
     "gulp-svgmin": "^1.2.3",
     "gulp-svgo": "^1.0.3",
     "gulp-uglify": "^2.0.1",
@@ -22,5 +25,9 @@
     "postcss-pxtorem": "^4.0.0",
     "require-dir": "^0.3.1",
     "sanitize.css": "^4.1.0"
+  },
+  "dependencies": {
+    "browser-sync": "^2.18.8",
+    "bs-html-injector": "^3.0.3"
   }
 }
